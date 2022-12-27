@@ -1,3 +1,4 @@
+using ThroughMe.InputSystem;
 using ThroughMe.Movement;
 using UnityEngine;
 using Zenject;
@@ -6,7 +7,7 @@ namespace ThroughMe.Di
 {
     public class InputSystemBinder : MonoInstaller
     {
-        [SerializeField] private Joystick _joystick;
+        [SerializeField] private MovementPortal _joystick;
 
         public override void InstallBindings() =>
             BindDirection();
