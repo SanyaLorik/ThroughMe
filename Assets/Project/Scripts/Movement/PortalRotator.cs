@@ -29,7 +29,7 @@ namespace ThroughMe.Movement
 
         private void Rotate()
         {
-            float angle = Vector2.SignedAngle(Vector2.up, _direction.Direction) + _camera.eulerAngles.y;
+            float angle = -(Vector2.SignedAngle(Vector2.up, _direction.Direction) + _camera.eulerAngles.y);
             Quaternion quaternion = Quaternion.Euler(new Vector3(0, angle, 0));
             Portal.Body.MoveRotation(quaternion);
         }
