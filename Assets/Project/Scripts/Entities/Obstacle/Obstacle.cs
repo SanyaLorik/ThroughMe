@@ -6,6 +6,7 @@ namespace ThroughMe.Entities
     public abstract class Obstacle : MonoBehaviour, IObstacle
     {
         [SerializeField] private AnimationCurve _curve;
+        [SerializeField] private float _duration;
 
         private Rigidbody _rigidbody;
 
