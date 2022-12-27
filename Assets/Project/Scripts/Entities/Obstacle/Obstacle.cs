@@ -32,5 +32,8 @@ namespace ThroughMe.Entities
 
             _rigidbody.velocity = direction * _speed;
         }
+
+        public void LookAt(Vector3 target) =>
+            transform.LookAt(target);
     }
 }
