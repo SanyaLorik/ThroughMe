@@ -6,7 +6,7 @@ namespace ThroughMe.Movement
 {
     public class PortalRotator : MonoBehaviour
     {
-        [SerializeField] private Transform _camera;
+        [SerializeField] [Min(0)] private float _sensitivity;
 
         private IDirection _direction;
 
@@ -29,7 +29,7 @@ namespace ThroughMe.Movement
 
         private void Rotate()
         {
-            float angle = -(Vector2.SignedAngle(Vector2.up, _direction.Direction) + _camera.eulerAngles.y);
+            float angle = Portal.Body.rotation.eulerAngles.y + -_direction.Direction.x * _sensitivity;
             Quaternion quaternion = Quaternion.Euler(new Vector3(0, angle, 0));
             Portal.Body.MoveRotation(quaternion);
         }

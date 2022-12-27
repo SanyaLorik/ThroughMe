@@ -6,16 +6,19 @@ using UnityEngine.UI;
 namespace ThroughMe.InputSystem
 {
     [RequireComponent(typeof(Image))]
-    public class MovementPortal : MonoBehaviour, IDirection, IDragHandler
+    public class MovementPortal : MonoBehaviour, IDirection, IDragHandler, IEndDragHandler
     {
-        public Vector2 Direction => throw new System.NotImplementedException();
-
-        private Vector2 _first = Vector2.zero;
-        private Vector2 _last = Vector2.zero;
-
         public void OnDrag(PointerEventData eventData)
         {
-            print(eventData.delta);
+            if (eventData.delta.y == 0)
+                return;
+
+            Direction = eventData.delta.normalized;
         }
+
+        public void OnEndDrag(PointerEventData eventData) =>
+            Direction = Vector2.zero;
+
+        public Vector2 Direction { get; private set; }
     }
 }
