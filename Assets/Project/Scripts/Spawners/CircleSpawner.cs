@@ -6,7 +6,7 @@ namespace ThroughMe.Spawners
     public class CircleSpawner : Spawner
     {
         [SerializeField] private Transform _point;
-        [SerializeField] private float _radius;
+        [SerializeField] [Min(0)] private float _radius;
 
         protected override Vector3 CalculatePosition()
         {

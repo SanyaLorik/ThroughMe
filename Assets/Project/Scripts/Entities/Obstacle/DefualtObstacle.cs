@@ -1,4 +1,6 @@
-﻿namespace ThroughMe.Entities
+﻿using UnityEngine;
+
+namespace ThroughMe.Entities
 {
     public class DefualtObstacle : Obstacle
     {

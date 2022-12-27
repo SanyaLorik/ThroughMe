@@ -7,8 +7,8 @@ namespace ThroughMe.Spawners
     {
         [SerializeField] private Transform _container;
 
-        public IObstacle Spawn(Obstacle value) =>
-            Instantiate(value, CalculatePosition(), _container.rotation, _container);
+        public IObstacle Spawn(Obstacle obstacle) =>
+            Instantiate(obstacle, CalculatePosition(), _container.rotation, _container);
 
         protected abstract Vector3 CalculatePosition();
     }

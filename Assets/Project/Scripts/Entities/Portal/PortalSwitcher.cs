@@ -10,7 +10,7 @@ namespace ThroughMe.Entities
 
         private void Awake()
         {
-            // setup temprory
+            // setup
             Switch(0);
         }
 
