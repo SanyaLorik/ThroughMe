@@ -10,35 +10,22 @@ namespace ThroughMe.Entities
         [SerializeField][Range(1, 10)] private int _health;
 
         public event Action OnDied;
-        public event Action OnCrashed;
-        public event Action OnCrossObstacle;
+        public event Action OnObstacleCrashed;
 
-        private bool _isDead = false;
-
-        private void OnCollisionEnter(Collision _)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (_isDead == true)
-                return;
-
-            OnCrashed?.Invoke();
-
             _health--;
-            if (_health <= 0)
+            if (_health > 0)
+            {
+                Debug.Log("Died!");
+                OnDied?.Invoke();
                 return;
+            }
 
-            _isDead = true;
+            Debug.Log("Crashed!");
+            OnObstacleCrashed?.Invoke();
 
-            Debug.Log("Died!");
-            OnDied?.Invoke(); 
-        }
-
-        private void OnTriggerExit(Collider _)
-        {
-            if (_isDead == true)
-                return;
-
-            Debug.Log("Cross.");
-            OnCrossObstacle?.Invoke();
+            Destroy(collision.gameObject);
         }
     }
 }

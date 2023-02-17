@@ -12,8 +12,11 @@ namespace ThroughMe.Entities
 
         private float _speed;
 
-        private void Awake() =>
+        private void Awake()
+        {
             _rigidbody = GetComponent<Rigidbody>();
+            Destroy(gameObject, _destoyAfterPortal);
+        }
 
         public void Init(float speed) =>
             _speed = speed;
