@@ -5,7 +5,7 @@ namespace ThroughMe.Entities
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class Portal : MonoBehaviour, IPortal
+    public class Portal : MonoBehaviour
     {
         public event Action OnCrashed;
         public event Action OnCrossObstacle;

@@ -1,12 +1,11 @@
-﻿using ThroughMe.Movement;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ThroughMe.InputSystem
 {
     [RequireComponent(typeof(Image))]
-    public class MovementPortal : MonoBehaviour, IDirection, IDragHandler, IEndDragHandler
+    public class MovementPortal : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         public void OnDrag(PointerEventData eventData)
         {

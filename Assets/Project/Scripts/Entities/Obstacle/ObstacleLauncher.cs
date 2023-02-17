@@ -17,7 +17,7 @@ namespace ThroughMe.Entities
 
         private void Launch()
         {
-            IObstacle obstacle = _spawner.Spawn(_obstacles[0]);
+            Obstacle obstacle = _spawner.Spawn(_obstacles[0]);
             obstacle.Move(_target.position);
             obstacle.LookAt(_target.position);
         }

@@ -4,7 +4,7 @@ namespace ThroughMe.Entities
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public abstract class Obstacle : MonoBehaviour, IObstacle
+    public class Obstacle : MonoBehaviour
     {
         [SerializeField][Min(0)] private float _destoyAfterPortal;
         [SerializeField][Min(0)] private float _speed;
