@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ThroughMe.Entities
@@ -10,5 +11,17 @@ namespace ThroughMe.Entities
             Body = GetComponent<Rigidbody>();
 
         public Rigidbody Body { get; private set; }
+
+
+
+        public void OnCrashObstacle(Action method)
+        {
+
+        }
+
+        public void OnCrossObstalce(Action method)
+        {
+
+        }
     }
 }

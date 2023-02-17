@@ -14,7 +14,7 @@ namespace ThroughMe.Movement
         private void Construct(IDirection direction) =>
             _direction = direction;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (_direction.Direction == Vector2.zero)
                 return;

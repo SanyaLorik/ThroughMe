@@ -8,13 +8,13 @@ namespace ThroughMe.Entities
         [SerializeField] private Portal[] _portals;
         [SerializeField] private PortalRotator _rotator;
 
+        private int _index = 0;
+
         private void Awake()
         {
             // setup
             Switch(0);
         }
-
-        private int _index = 0;
 
         private void OnSwitchNext() =>
             Switch(1);

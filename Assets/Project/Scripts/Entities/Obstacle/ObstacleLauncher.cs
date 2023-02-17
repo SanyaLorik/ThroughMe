@@ -1,5 +1,4 @@
-﻿using System;
-using ThroughMe.Spawners;
+﻿using ThroughMe.Spawners;
 using UnityEngine;
 
 namespace ThroughMe.Entities
@@ -21,8 +20,6 @@ namespace ThroughMe.Entities
             IObstacle obstacle = _spawner.Spawn(_obstacles[0]);
             obstacle.Move(_target.position);
             obstacle.LookAt(_target.position);
-
-            obstacle.PortalReached = Launch;
         }
     }
 }
