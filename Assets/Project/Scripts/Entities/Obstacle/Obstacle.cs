@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ThroughMe.Entities
 {
@@ -15,12 +14,10 @@ namespace ThroughMe.Entities
         private void Awake() =>
             _rigidbody = GetComponent<Rigidbody>();
 
-        public Action PortalReached { private get; set; }
-
         public void Move(Vector3 target)
         {
             Vector3 direction = target - transform.transform.position;
-            _rigidbody.velocity = direction.normalized * _speed;
+            _rigidbody.AddForce(direction * _speed, ForceMode.VelocityChange);
         }
 
         public void LookAt(Vector3 target) =>
