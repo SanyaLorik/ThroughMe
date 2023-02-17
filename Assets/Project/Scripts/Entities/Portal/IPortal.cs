@@ -5,10 +5,10 @@ namespace ThroughMe.Entities
 {
     public interface IPortal
     {
+        event Action OnCrashed;
+
+        event Action OnCrossObstacle;
+
         Rigidbody Body { get; }
-
-        void OnCrashObstacle(Action method);
-
-        void OnCrossObstalce(Action method);
     }
 }
