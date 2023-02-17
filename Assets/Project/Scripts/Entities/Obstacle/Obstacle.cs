@@ -7,12 +7,16 @@ namespace ThroughMe.Entities
     public class Obstacle : MonoBehaviour
     {
         [SerializeField][Min(0)] private float _destoyAfterPortal;
-        [SerializeField][Min(0)] private float _speed;
 
         private Rigidbody _rigidbody;
 
+        private float _speed;
+
         private void Awake() =>
             _rigidbody = GetComponent<Rigidbody>();
+
+        public void Init(float speed) =>
+            _speed = speed;
 
         public void Move(Vector3 target)
         {
