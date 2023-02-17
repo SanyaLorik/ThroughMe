@@ -25,14 +25,23 @@ namespace ThroughMe.Entities
             Launch();
         }
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
             _portal.OnCrossObstacle += OnLaunch;
+            _portal.OnCrashed += OnRevertToInitialSpeed;
+        }
 
-        private void OnDisable() =>
+        private void OnDisable()
+        {
             _portal.OnCrossObstacle -= OnLaunch;
+            _portal.OnCrashed -= OnRevertToInitialSpeed;
+        }
 
         private void OnLaunch() =>
             Launch();
+
+        private void OnRevertToInitialSpeed() =>
+            _currentSpeed = _initialSpeed;
 
         private void Launch()
         {
