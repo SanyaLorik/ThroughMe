@@ -7,17 +7,22 @@ namespace ThroughMe.Entities
     [RequireComponent(typeof(Rigidbody))]
     public class Portal : MonoBehaviour
     {
-        [SerializeField][Range(1, 10)] private int _health;
+        [SerializeField] private Data _health;
 
         public event Action OnDied;
         public event Action OnObstacleCrashed;
+
+        private int _currentHealth;
+
+        private void Awake() =>
+            _currentHealth = _health.Value;
 
         private void OnCollisionEnter(Collision collision)
         {
             Destroy(collision.gameObject);
 
-            _health--;
-            if (_health <= 0)
+            _currentHealth--;
+            if (_currentHealth <= 0)
             {
                 Debug.Log("Died!");
                 OnDied?.Invoke();
