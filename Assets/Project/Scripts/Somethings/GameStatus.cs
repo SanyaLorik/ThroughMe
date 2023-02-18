@@ -3,9 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ThroughMe.Ui
+namespace ThroughMe.Somethings
 {
-    public class UiGameStatus : MonoBehaviour
+    public class GameStatus : MonoBehaviour
     {
         [Header("Dependencies")]
         [SerializeField] private Portal _portal;
