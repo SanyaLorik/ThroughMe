@@ -14,8 +14,10 @@ namespace ThroughMe.Entities
 
         private void OnCollisionEnter(Collision collision)
         {
+            Destroy(collision.gameObject);
+
             _health--;
-            if (_health > 0)
+            if (_health <= 0)
             {
                 Debug.Log("Died!");
                 OnDied?.Invoke();
@@ -24,8 +26,9 @@ namespace ThroughMe.Entities
 
             Debug.Log("Crashed!");
             OnObstacleCrashed?.Invoke();
-
-            Destroy(collision.gameObject);
         }
+
+        private void OnTriggerEnter(Collider other) =>
+            other.isTrigger = true;
     }
 }

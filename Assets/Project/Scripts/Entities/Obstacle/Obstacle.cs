@@ -8,15 +8,19 @@ namespace ThroughMe.Entities
     {
         [SerializeField][Min(0)] private float _destoyAfterPortal;
 
+        private Collider _collider;
         private Rigidbody _rigidbody;
 
         private float _speed;
 
         private void Awake()
         {
+            _collider = GetComponent<Collider>();
             _rigidbody = GetComponent<Rigidbody>();
             Destroy(gameObject, _destoyAfterPortal);
         }
+
+        public bool IsTrigger => _collider.isTrigger;
 
         public void Init(float speed) =>
             _speed = speed;

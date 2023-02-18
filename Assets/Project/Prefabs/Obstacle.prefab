@@ -210,4 +210,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae2c2d57f2f79f4eb41efec3fbf2ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destoyAfterPortal: 1
+  _destoyAfterPortal: 5

@@ -72,11 +72,10 @@ namespace ThroughMe.Entities
                 obstacle.Move(_target.position);
                 obstacle.LookAt(_target.position);
 
-                await UniTask.WaitUntil(() => obstacle == null, cancellationToken: token);
-
-                OnSpeedUpdated?.Invoke(_countSpeed);
+                await UniTask.WaitUntil(() => obstacle == null || obstacle.IsTrigger == true, cancellationToken: token);
 
                 RecaclulateSpeed();
+                OnSpeedUpdated?.Invoke(_countSpeed);
             } 
             while (token.IsCancellationRequested == false);
         }
